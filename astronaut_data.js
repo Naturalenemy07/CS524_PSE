@@ -20,7 +20,7 @@ class infoUser {
         return 0
     }
 
-    boolean
+    //returns true if credentials match, otherwise returns false
     checkCredentials(inpUsername,inpPassword) {
         if (inpUsername == localStorage.getItem("username")) {
             if (inpPassword == localStorage.getItem("password")) {
