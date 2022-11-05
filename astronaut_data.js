@@ -34,3 +34,8 @@ class infoUser {
 }
 
 document.write("Hello, I am from the Astronaut data JavaScript file");
+
+function createNewUser(name, password, email) {
+    const user = new infoUser(name,password,email,[0,0,0]);
+    user.storeInfo();
+}
