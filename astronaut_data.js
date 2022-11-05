@@ -32,3 +32,5 @@ class infoUser {
         }
     }
 }
+
+document.write("Hello, I am from the Astronaut data JavaScript file");
