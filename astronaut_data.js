@@ -33,8 +33,10 @@ class infoUser {
     }
 }
 
-document.write("Hello, I am from the Astronaut data JavaScript file");
+// test to verfiy javscript file was being called
+// document.write("Hello, I am from the Astronaut data JavaScript file");
 
+// function to create a new users, will be called from html file of the login screen
 function createNewUser(name, password, email) {
     const user = new infoUser(name,password,email,[0,0,0]);
     user.storeInfo();
