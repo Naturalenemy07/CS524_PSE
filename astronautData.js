@@ -4,10 +4,10 @@ class infoUser {
    //functions to create, aquire, modify user information
    //initialize class
     constructor(username, password, email, scores) {
-        this.username = username; //string
-        this.password = password; //should we encrypt this before storing on users device?
-        this.email = email; //string
-        this.scores = scores; //tuple [0,0,0], how will scores be represented?
+        this.username = username; 
+        this.password = password; 
+        this.email = email; 
+        this.scores = scores; 
     }
 
     //store information on local machine
@@ -31,8 +31,25 @@ function checkCredentials(inpUsername,inpPassword) {
     }
 }
 
+//function to create new user
 function createNewUser(name, password, email) {
     const user = new infoUser(name,password,email,[0,0,0]);
     document.writeln("say hello");
     user.storeInfo();
+}
+
+//function to reset password if forgottn
+function changePassword(inpUsername, inpEmail) {
+    if (inpUsername == localStorage.getItem("username")) {
+        if (inpEmail == localStorage.getItem("email")) {
+            return localStorage.password;
+        }
+    }
+}
+
+// function to update scores
+function updateScore(scoreIndex, amountToAdd) {
+    currentScores = localStorage.getItem("scores");
+    updatedScores = currentScores[scoreIndex] + amountToAdd;
+    localStorage.setItem("scores", updatedScores);
 }
