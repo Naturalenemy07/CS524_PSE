@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>astronaut quiz</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game.css">
+    
+</head> 
+<body background="bkg.jpg">
+    <div class="container">
+        <div id="game" class="justify-center felx-coloumn">
+            <div id="hud">
+                <div class = "hud_item">
+                    <p id="progresstext" class="hud_prefix">
+                        question
+                    </p>
+                    <div id="progressbar">
+                        <div id="progressbarfull"></div>
+                    </div>
+                </div>
+                <div class="hud_item">
+                    <p class="hud_prefix">
+                        score
+                    </p>
+                    <h1 class="hud_main_text" id="score">
+                        0
+                    </h1>
+                </div>
+            </div>
+            <!--add questions. -->
+            <h1 id="question">question 1 of astronaut quiz</h1> <!--question 1 details-->
+            <div class="choice_container">
+                <p class="choice_prefix">A</p>
+                <p class="choice_text" data-number="1">Choice</p>
+            </div>
+            <div class="choice_container">
+                <p class="choice_prefix">B</p>
+                <p class="choice_text" data-number="2">Choice</p>
+            </div>
+            <div class="choice_container">
+                <p class="choice_prefix">C</p>
+                <p class="choice_text" data-number="3">Choice</p>
+            </div>
+            <div class="choice_container">
+                <p class="choice_prefix">D</p>
+                <p class="choice_text" data-number="4">Choice</p>
+            </div>
+            
+             <div class="Hint"> Hint
+                <span class="Hinttext">Hint-text</span>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="game.js"></script> 
+</body>
+</html>
+
+

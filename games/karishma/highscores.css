@@ -1,0 +1,17 @@
+
+h1{
+    font-size: 4rem;
+    color:rgb(255, 255, 255);
+    margin-bottom: 2rem;
+
+ }
+#highscoresList {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.highscores {
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+    color: #ffffff;
+}

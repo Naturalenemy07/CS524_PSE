@@ -1,0 +1,127 @@
+
+.choice_container{
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    border-radius: 4px;
+    background:#032065;
+    font-size: 2rem;
+    min-width: 50rem;
+
+}
+h1{
+    font-size: 2rem;
+    color:rgb(131, 232, 210);
+    margin-bottom: 1rem;
+
+ }
+ p{
+    font-size: 3rem;
+    color:rgb(131, 232, 210);
+
+ }
+.choice_container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(29, 16, 172);
+    transition: transform 120ms;
+    transform: scale(1.05);
+}
+.choice_prefix{
+    padding: 2rem 2.5rem;
+    font-size: x-large;
+    color:rgb(255, 255, 255);
+}
+.choice_text{
+    padding: 2rem 2.5rem;
+    font-size: x-large;
+    color:rgb(255, 255, 255);
+}
+.correct{
+    background: linear-gradient(32deg, rgba(11,223, 36), rgb(41, 232, 111) 100% );
+}
+.incorrect{
+    background: linear-gradient(32deg, rgb(230, 29, 29, 1), rgb(224, 11, 11, 1) 100% );
+}
+
+/*heads up display*/
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
+.hud_prefix{
+    text-align: center;
+    font-size: 2rem;
+}
+.hud_main_text{
+    text-align: center;
+}
+#progressbar{
+    width: 10rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(142, 190, 194);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#progressbarfull{
+    height: 100%;
+    background: rgb(33, 220, 237);
+    width: 0%;
+}
+@media screen and(max-width:768px) {
+    .choice_container{
+        min-width: 40rem;
+    }
+}
+
+/*hint css*/
+
+.Hint {
+    position: relative;
+    border-bottom: px rgb(25, 214, 231);
+    font-size: 2rem;
+    color: rgb(153, 235, 255);
+  }
+  
+  .Hint:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: rgb(8, 118, 149);
+    color: rgb(248, 240, 240);
+    text-align: justify;
+    border-radius: 6px;
+    transition: opacity 1s ease-in-out;
+  
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 110%;
+  }
+  
+  .Hint:hover:before {
+    opacity: 4;
+    visibility: visible;
+    
+  }
+
+  .Hint .Hinttext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(161, 255, 154);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: x-large;
+  }
+
+    .Hint:hover .Hinttext {
+        visibility: visible;
+      }
+
+
+ 
