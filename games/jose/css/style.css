@@ -1,0 +1,170 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+}
+
+html,
+body {
+	width: 100%;
+}
+
+body {
+	flex-direction: column;
+	min-height: 100vh;
+	color: #fff;
+	background: #00356B;
+	background-image: url('https://static.vecteezy.com/system/resources/previews/003/032/070/non_2x/empty-blackboard-with-astronaut-kids-cartoon-character-free-vector.jpg');
+	background-repeat: no-repeat;
+	
+	
+}
+
+body,
+header {
+	display: flex;
+	justify-content: space-between;
+}
+
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 2;
+	list-style: none;
+}
+
+ul {
+	padding-left: 0;
+}
+
+#header {
+	
+	font-family: 'Open Sans', sans-serif;
+}
+
+#header,
+#content {
+	margin: 0 auto;
+	width: 1140px;
+	max-width: 90%;
+}
+
+#header {
+	margin-top: 1.5em;
+}
+
+
+#footer {
+	font-family: 'Merriweather', serif;
+	padding: 1.5em 3em;
+	margin-top: 3em;
+	bottom:30px;
+	top: 180px;
+	text-align: center;
+}
+
+#content {
+	left:20px;
+	top: 180px;
+	position: relative;
+	text-align: center;
+	border-radius: 5px;
+	width : 500px;
+}
+
+
+.site-title {
+	left:20px;
+	top: 200px;
+	position: relative;
+	margin: 0.2em;
+	font-size: 3.5em;
+}
+
+.score {
+	text-align: center;
+}
+
+#score-counter {
+	font-size: 2.5em;
+}
+
+#score-counter,
+.points {
+	right:280px;
+	top: 200px;
+	position: relative;
+	margin: 0;
+}
+
+#question-box {
+	margin-bottom: 1.5em;
+	font-size: 1.5em;
+	
+}
+
+#answer-box {
+	left:20px;
+	top: 150px;
+	margin-bottom: 1.5em;
+	
+}
+
+.answer span {
+	cursor: pointer;
+	margin-left: 1em;
+	transition: 0.1s;
+}
+
+.answer {
+	transition: all .25s ease-in-out;
+}
+
+.answer:hover {
+	opacity: .8;
+	transform: translate3d(1em, 0, 0);
+}
+
+.correct,
+#num-correct {
+	color: #00A550;
+}
+
+.wrong,
+#num-wrong {
+	color: #C40233;
+}
+
+#num-wrong,
+#num-correct,
+#num-total {
+	text-decoration: underline;
+}
+
+.results {
+	padding: 3em;
+	width: 800px;
+	max-width: 90%;
+	border-radius: 5px;
+	background: rgba(21, 22 ,23, 1);
+}
+
+.results-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: all .5s ease-in-out;
+	transform: translateY(-100%);
+	background: rgba(21, 22 ,23, 0.7);
+}
+
+.results-container.display {
+	transform: translateY(0);
+}
