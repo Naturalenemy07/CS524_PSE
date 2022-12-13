@@ -18,7 +18,7 @@ function changePassword(inpUsername, inpEmail) {
 
         if (inpEmail == localStorage.getItem("email")) {
             alert("Password is: "+ localStorage.password);
-            window.location = "./test.html";  
+            window.location = "./logon.html";  
             return true;
         }
         else{
