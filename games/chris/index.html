@@ -1,1 +1,315 @@
-#
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="memorystyles.css" rel="stylesheet">
+  <script src="memory.js" async></script>
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <h1 class="page-title">Memory Game</h1>
+  <div class="overlay-text visible">
+    Click to Start
+  </div>
+  <div id="game-over-text" class="overlay-text">
+    GAME OVER
+    <span class="overlay-text-small">Click to Restart</span>
+  </div>
+  <div id="game-won-text" class="overlay-text">
+    VICTORY
+    <span class="overlay-text-small">Click to Restart</span>
+  </div>
+
+  <div class="game-container">
+    <div class="game-info-container">
+      <div class="game-info">
+        Time Remaining<span id="time-remaining">100</span>
+      </div>
+      <div class="game-info">
+        Flips <span id="flips">0</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-back card-face">
+
+      </div>
+      <div class="card-front card-face">
+
+      </div>
+    </div>
+
+    <script>
+      class MemoryGame {
+        constructor(totalTime, cards) {
+          this.cardsArray = cards;
+          this.totalTime = totalTime;
+          this.timeRemaining = totalTime;
+          this.timer = document.getElementById('time-remaining');
+          this.ticker = document.getElementById('flips');
+        }
+
+        startGame() {
+          this.cardToCheck = null;
+          this.totalClicks = 0;
+          this.timeRemaining = this.totalTime;
+          this.matchedCards = [];
+          this.busy = true;
+          this.setTimeout(() => {
+            this.shuffleCards(this.cardsArray);
+            this.countdown = this.startCountdown();
+            this.busy = false;
+          }, 500)
+          this.hideCards();
+          this.timer.innerText = this.timeRemaining;
+          this.ticker.innerText = this.totalClicks;
+        }
+
+        hideCards() {
+          this.cardsArray.forEach(card => {
+            card.classList.remove('visible');
+            card.classList.remove('matched');
+          });
+        }
+
+        flipCard(card) {
+          if (this.canFlipCard(card)) {
+            this.totalClicks++;
+            this.ticker.innerText = this.totalClicks;
+            card.classList.add('visible');
+
+            if (this.cardToCheck)
+              this.checkForMatch(card)
+            else
+              this.cardToCheck = card;
+          }
+        }
+
+        checkForMatch() {
+          if (this.getCardType(card) === this.getCardType(this.cardToCheck))
+            this.cardMatch(card, this.cardToCheck);
+          else
+            this.cardMisMatch(card, this.cardToCheck);
+
+          this.cardToCheck = null;
+        }
+
+        cardMatch(card1, card2) {
+          this.matchedCards.push(card1);
+          this.matchedCards.push(card2);
+          card1.classList.add('matched');
+          card2.classList.add('matched');
+
+          if (this.matchedCards.length === this.cardsArray.length)
+            this.gameWon();
+        }
+
+        cardMisMatch(card1, card2) {
+          this.busy = true;
+          setTimeout(() => {
+            card1.classList.remove('visible');
+            card2.classList.remove('visible');
+            this.busy = false;
+          }, 1000)
+        }
+
+        getCardType(card) {
+          return card.getElementsByClassName('card-value')[0].src;
+        }
+
+        startCountdown() {
+          return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if (this.timeRemaining === 0)
+              this.gameOver();
+          }, 1000);
+        }
+
+        gameOver() {
+          clearInterval(this.countdown);
+          document.getElementById('game-over-text').classList.add('visible');
+        }
+
+        gameWon() {
+          clearInterval(this.countdown);
+          document.getElementById('game-won-text').classList.add('visible')
+        }
+
+        shuffleCards(cardsArray) {
+          for (let i = cardsArray.length - 1; i > 0; i--) {
+            let randomIndex = Math.floor(Math.random() * (i + 1));
+            cardsArray[randomIndex].style.order = i;
+            cardsArray[i].style.order = randomIndex;
+          }
+        }
+
+        canFlipCard(card) {
+          return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
+        }
+      }
+
+      function ready() {
+        let overlays = Array.from(document.getElementsByClassName('text-overlay'));
+        let cards = Array.from(document.getElementsByClassName('card'));
+        let game = MemoryGame(100, cards);
+
+        overlays.forEach(overlay => {
+          overlay.addEventListener('click', () => {
+            overlay.classList.remove('visible');
+            game.startGame();
+          });
+        });
+
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            game.flipCard(card);
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ready());
+      } else {
+        ready();
+      }
+    </script>
+</body>
+
+</html>
