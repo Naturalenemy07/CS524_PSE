@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>JavaScript</title>
+  <script src="smtp.js"></script>
+  <script type="text/javascript">
+    function sendEmail(email) {
+      console.log('hello there');
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "astronaut.hood@gmail.com",
+        Password: "452FFB09FF934F97DBD2C81E74F7A978A8BE",
+        To: email,
+        From: "astronaut.hood@gmail.com",
+        Subject: "Welcome to Astronaut Training!",
+        Body: "Dear " + email + ","+
+                " Thank you for joining Astronaut Training." +
+                " We hope you will gets lots of enjoyment out of it! ",
+      });
+    }
+  </script>
+</head>
+
+<body>
+<script type="text/javascript" src="astronautData.js"></script><br><br>
+
+<!-- ----------- Sign Up page -------------------->
+
+  <title> Sign up Form </title>
+  <link rel="stylesheet" href="style.css">
+
+
+<div class="center">
+  <h1>Sign Up</h1>
+  <form action="/" method="post">
+    <div class="txt_field">
+      <input type="text" id="username" required>
+      <span></span>
+      <label for="username"> Username</label>
+    </div>
+
+    <div class="txt_field">
+      <input type="password" id="password"required>
+      <span></span>
+      <label for="password">Password</label>
+    </div>
+
+    <div class="txt_field">
+       <input type="email" id="email" required>
+       <span></span>
+       <label for="email">Email</label>
+    </div>
+
+    <input type="submit" value="Sign up"
+           onclick="createNewUser(document.getElementById('username').value,document.getElementById('password').value,document.getElementById('email').value)">
+    <div class="signup_link">
+      Already have an account? <a href="logon.html">Login</a>
+    </div>
+</form>
+</div>
+
+<!-- Astronaut Training Logo----->
+<div class="main">
+  <img id="title1" src="astronautTrainingLogo.png">
+</div>
+</body>
+</html>
