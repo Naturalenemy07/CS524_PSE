@@ -1,1 +1,40 @@
-#
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Astronaut Training</title>
+</head>
+
+<body>
+  <h1>Astronaut Training</h1>
+  <h2>Achievements</h2>
+  <button>Today's Challenge</button>
+  <button>Agility</button>
+  <button>Problem Solving</button>
+  <button>Knowledge</button>
+  <button>Tutorial</button>
+
+  <script>
+    function gameClick() {
+      let buttons = Array.from(document.getElementsByClassName('button'));
+
+      buttons.forEach(button => {
+        button.addEventListener('click', (todaysChallenge, agility, problemSolving, knowledge) => {
+          //button click from user directs them to new page with game list
+        });
+      });
+    }
+
+    function tutorial() {
+      let tutorialButton = Array.from(document.getElementById('tutorial'));
+
+      tutorialButton.forEach(tutorial => {
+        tutorial.addEventListener('click', () => {
+          //button click displays a tutorial of the program
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
