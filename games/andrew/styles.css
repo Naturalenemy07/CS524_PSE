@@ -24,6 +24,7 @@ body {
   inset: 0;
   margin: 0;
   flex-direction: column;
+  color: aliceblue;
 }
 
 .subtitle {

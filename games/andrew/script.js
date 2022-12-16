@@ -53,7 +53,7 @@ function handleLose() {
   setTimeout(() => {
     title.classList.remove("hide")
     subtitle.classList.remove("hide")
-    subtitle.textContent = `${getPassedPipesCount()} Pipes`
+    subtitle.textContent = `${getPassedPipesCount()} PIPES`
     document.addEventListener("keypress", handleStart, { once: true })
   }, 100)
 }
